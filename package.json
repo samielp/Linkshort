@@ -1,0 +1,14 @@
+{
+  "name": "vercel-link-shortener",
+  "version": "1.0.0",
+  "description": "URL shortener for Vercel + MongoDB",
+  "main": "api/shorten.js",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "mongoose": "^7.5.0",
+    "nanoid": "^3.3.6",
+    "dotenv": "^16.3.1"
+  }
+}
