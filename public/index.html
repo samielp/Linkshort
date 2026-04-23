@@ -3,44 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShortLink – Professional URL Shortener</title>
+    <title>ShortLink – Beautiful URL Shortener</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/style.css">
 </head>
-<body class="bg-gray-100">
-    <div class="max-w-4xl mx-auto p-6">
-        <nav class="flex justify-between items-center mb-8">
-            <h1 class="text-3xl font-bold text-indigo-600">🔗 ShortLink</h1>
-            <div class="space-x-4">
-                <a href="/" class="text-gray-700 hover:text-indigo-600">Home</a>
-                <a href="/dashboard" class="text-gray-700 hover:text-indigo-600">Dashboard</a>
-                <a href="/about" class="text-gray-700 hover:text-indigo-600">About</a>
+<body class="antialiased">
+    <div class="min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <nav class="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto w-full">
+            <div class="flex items-center space-x-2">
+                <span class="text-3xl">🔗</span>
+                <span class="text-white font-bold text-xl">ShortLink</span>
+            </div>
+            <div class="space-x-6">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/dashboard" class="nav-link">Dashboard</a>
+                <a href="/about" class="nav-link">About</a>
             </div>
         </nav>
 
-        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Shorten a URL</h2>
-            <form id="shortenForm">
-                <div class="mb-4">
-                    <label class="block text-gray-700 mb-2">Long URL *</label>
-                    <input type="url" id="url" required placeholder="https://example.com/very/long/url" class="w-full border rounded-lg p-2">
+        <!-- Hero Section -->
+        <div class="flex-1 flex items-center justify-center px-4 py-12">
+            <div class="max-w-4xl w-full">
+                <div class="text-center mb-10">
+                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
+                        Shorten <span class="underline decoration-pink-300">Any URL</span>
+                    </h1>
+                    <p class="text-xl text-white/80">Create clean, trackable short links in seconds. Free & powerful.</p>
                 </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 mb-2">Custom slug (optional)</label>
-                    <input type="text" id="customSlug" placeholder="my-custom-link" class="w-full border rounded-lg p-2">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 mb-2">Category</label>
-                    <input type="text" id="category" placeholder="e.g., work, social, blog" class="w-full border rounded-lg p-2">
-                </div>
-                <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Shorten</button>
-            </form>
-            <div id="result" class="mt-4 hidden"></div>
-        </div>
 
-        <div class="bg-white rounded-xl shadow-md p-6">
-            <h2 class="text-2xl font-semibold mb-4">Recent Links</h2>
-            <div id="recentLinks" class="space-y-2"></div>
+                <!-- Main Card -->
+                <div class="glass-card p-6 md:p-8">
+                    <form id="shortenForm" class="space-y-5">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-1">Long URL *</label>
+                            <input type="url" id="url" required placeholder="https://your-long-link.com/whatever" class="w-full">
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-1">Custom slug (optional)</label>
+                                <input type="text" id="customSlug" placeholder="my-cool-link">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-1">Category</label>
+                                <input type="text" id="category" placeholder="work, social, blog">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary w-full md:w-auto px-8 py-3 text-lg">
+                            🚀 Shorten URL
+                        </button>
+                    </form>
+                    <div id="result" class="mt-6 hidden"></div>
+                </div>
+
+                <!-- Recent Links Section -->
+                <div class="mt-12 glass-card p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <span>📌</span> Recently created
+                    </h2>
+                    <div id="recentLinks" class="space-y-3 max-h-80 overflow-y-auto"></div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="/script.js"></script>
