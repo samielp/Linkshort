@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard – Manage Links</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-6xl mx-auto p-6">
+        <nav class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-indigo-600">📊 Dashboard</h1>
+            <div class="space-x-4">
+                <a href="/" class="text-gray-700 hover:text-indigo-600">Home</a>
+                <a href="/dashboard" class="text-gray-700 hover:text-indigo-600">Dashboard</a>
+                <a href="/about" class="text-gray-700 hover:text-indigo-600">About</a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-semibold">All Links</h2>
+                <select id="categoryFilter" class="border rounded p-2">
+                    <option value="all">All categories</option>
+                </select>
+            </div>
+            <div id="linksTable" class="overflow-x-auto"></div>
+        </div>
+    </div>
+
+    <!-- Edit Modal (hidden by default) -->
+    <div id="editModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md">
+            <h3 class="text-xl font-bold mb-4">Edit Link</h3>
+            <input type="hidden" id="editSlug">
+            <div class="mb-3">
+                <label>Original URL</label>
+                <input type="url" id="editUrl" class="w-full border rounded p-2">
+            </div>
+            <div class="mb-3">
+                <label>Category</label>
+                <input type="text" id="editCategory" class="w-full border rounded p-2">
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button id="closeModal" class="px-4 py-2 bg-gray-300 rounded">Cancel</button>
+                <button id="saveEdit" class="px-4 py-2 bg-indigo-600 text-white rounded">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
